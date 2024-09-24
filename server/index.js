@@ -17,8 +17,18 @@ mongoose.connect('mongodb://127.0.0.1:27017/crud', {
 
 app.post('/create', async (req, res) => {
     UserModel.create(req.body)
-    .then(() => {
-        res.send('User created')
+    .then((data) => {
+        res.json(data)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+})
+
+app.get('/', async (req, res) => {
+    UserModel.find()
+    .then((data) => {
+        res.json(data)
     })
     .catch((err) => {
         console.log(err)
