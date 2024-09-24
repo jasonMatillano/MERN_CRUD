@@ -35,6 +35,16 @@ app.get('/', async (req, res) => {
     })
 })
 
+app.get('/getUser/:id', async (req, res) => {
+    UserModel.findById(req.params.id)
+    .then((data) => {
+        res.json(data)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+})
+
 
 
 const port = 3001
