@@ -7,6 +7,7 @@ function Users() {
     const  [users, setUsers] = useState([
         {}
     ]);
+    
 
     useEffect(() => {
         axios.get('http://localhost:3001')
@@ -16,6 +17,16 @@ function Users() {
             console.log(err)
         })
     }, [])
+
+    const handleDelete = (id) => {
+        axios.delete('http://localhost:3001/delete/' + id)
+        .then (result => {
+            console.log(result)
+            window.location.reload()
+        }).catch(err => {
+            console.log(err)
+        })
+    }
     
     return (
         <div className='d-flex vh-100 bg-light justify-content-center align-items-center'>
@@ -39,7 +50,7 @@ function Users() {
                                 <td>{user.age}</td>
                                 <td>
                                     <Link to={`/update/${user._id}`} className='btn btn-sm btn-primary me-2'>Update</Link>
-                                    <button className='btn btn-sm btn-danger'>Delete</button>
+                                    <button onClick={() => handleDelete(user._id)} className='btn btn-sm btn-danger'>Delete</button>
                                 </td>
                             </tr>
                         ))}

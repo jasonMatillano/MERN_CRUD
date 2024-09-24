@@ -64,7 +64,7 @@ function CreateUser() {
                             onChange={(e) => setAge(e.target.value)}
                         />
                     </div>
-                    <button type='submit' className='btn btn-primary w-100'>
+                    <button type='submit' className='btn btn-success w-100'>
                         Create User
                     </button>
                 </form>

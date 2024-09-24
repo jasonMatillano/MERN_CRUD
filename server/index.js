@@ -55,6 +55,15 @@ app.put('/update/:id', async (req, res) => {
     })
 })
 
+app.delete('/delete/:id', async (req, res) => {
+    UserModel.findByIdAndDelete(req.params.id)
+    .then((data) => {
+        res.json(data)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+})
 
 const port = 3001
 app.listen(port, () => {
