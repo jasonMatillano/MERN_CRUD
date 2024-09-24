@@ -45,6 +45,15 @@ app.get('/getUser/:id', async (req, res) => {
     })
 })
 
+app.put('/update/:id', async (req, res) => {
+    UserModel.findByIdAndUpdate(req.params.id, req.body)
+    .then((data) => {
+        res.json(data)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+})
 
 
 const port = 3001
