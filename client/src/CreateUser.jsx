@@ -13,7 +13,7 @@ function CreateUser() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/create', {
+        axios.post('http://3.95.188.153:3001/create', {
             name: name,
             email: email,
             age: age
