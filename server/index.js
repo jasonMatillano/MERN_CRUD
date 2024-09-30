@@ -6,7 +6,12 @@ const UserModel = require('./models/Users')
 
 const app = express()
 app.use(express.json())
-app.use(cors())
+// Use CORS to allow requests from the frontend
+app.use(cors({
+    origin: '*', // The frontend origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    credentials: true // Allow cookies or auth headers
+}));
 
 mongoose.connect('mongodb://127.0.0.1:27017/crud', {
 }).then(() => {
