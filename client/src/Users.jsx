@@ -16,7 +16,7 @@ function Users() {
     }, []);
 
     const handleDelete = (id) => {
-        axios.delete('http://localhost:3001/delete/' + id)
+        axios.delete('http://3.95.188.153:3001/delete/' + id)
             .then(result => {
                 console.log(result);
                 window.location.reload();

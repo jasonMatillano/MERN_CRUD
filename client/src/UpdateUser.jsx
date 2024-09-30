@@ -13,7 +13,7 @@ function UpdateUser() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put('http://localhost:3001/update/' + id, {
+        axios.put('http://3.95.188.153:3001/update/' + id, {
             name: name,
             email: email,
             age: age
@@ -28,7 +28,7 @@ function UpdateUser() {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:3001/getUser/' + id)
+        axios.get('http://3.95.188.153:3001/getUser/' + id)
         .then (result => {
             console.log(result.data)
             setName(result.data.name)
